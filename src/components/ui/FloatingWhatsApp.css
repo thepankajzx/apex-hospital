@@ -1,0 +1,31 @@
+.floating-wa {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 60px;
+  height: 60px;
+  background-color: #25D366;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+  z-index: 9999;
+  transition: all var(--transition-normal);
+}
+
+.floating-wa:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.5);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .floating-wa {
+    bottom: 80px; /* Leave space for bottom nav if we add one */
+    right: 16px;
+    width: 50px;
+    height: 50px;
+  }
+}

@@ -1,0 +1,118 @@
+.header {
+  position: sticky;
+  top: -36px;
+  z-index: 1000;
+  background-color: var(--color-surface);
+  transition: box-shadow var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.header.scrolled {
+  box-shadow: var(--shadow-md);
+}
+
+.header-top {
+  background-color: var(--color-secondary-light);
+  color: var(--color-text);
+  height: 36px;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+}
+
+.header-main {
+  height: var(--header-height);
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.logo-apex {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--color-primary);
+  letter-spacing: 0.5px;
+}
+
+.logo-diag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.desktop-nav {
+  display: none;
+  gap: var(--spacing-xl);
+}
+
+@media (min-width: 992px) {
+  .desktop-nav {
+    display: flex;
+  }
+}
+
+.nav-link {
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 0.95rem;
+  position: relative;
+  padding: 0.5rem 0;
+  font-family: var(--font-heading);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-accent);
+  transition: width var(--transition-normal);
+}
+
+.nav-link:hover {
+  color: var(--color-accent);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link.active {
+  color: var(--color-accent);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.mobile-menu-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: block;
+}
+
+@media (min-width: 992px) {
+  .mobile-menu-btn {
+    display: none;
+  }
+}
+
+.book-btn {
+  border-radius: 6px !important; /* Nimbus has slightly squarer main buttons in header */
+}
+
+@media (max-width: 768px) {
+  .book-btn {
+    display: none;
+  }
+}

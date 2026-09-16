@@ -1,0 +1,134 @@
+.footer-modern {
+  background-color: #f7f9f9;
+  color: var(--color-text);
+  padding: 4rem 0 2rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.footer-modern-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.footer-modern-brand {
+  max-width: 450px;
+}
+
+.footer-modern-badge {
+  background-color: var(--color-secondary-light);
+  color: var(--color-secondary);
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.footer-modern-links ul,
+.footer-modern-contact ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-modern-links a,
+.footer-modern-contact li {
+  color: var(--color-text);
+  opacity: 0.7;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.footer-modern-links a:hover {
+  opacity: 1;
+  color: var(--color-primary);
+  transform: translateX(2px);
+}
+
+.footer-modern-bottom {
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.footer-bottom-left {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.footer-bottom-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.footer-badge-certified {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #475569;
+  font-size: 0.85rem;
+}
+
+.footer-cert-circle {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--color-secondary);
+  display: inline-block;
+}
+
+.footer-back-to-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0;
+  color: #475569;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  font-family: inherit;
+}
+
+.footer-back-to-top:hover {
+  color: var(--color-primary);
+}
+
+@media (max-width: 992px) {
+  .footer-modern-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-modern-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .footer-modern-bottom {
+    flex-direction: column;
+    gap: 1.25rem;
+    text-align: center;
+    align-items: center;
+  }
+
+  .footer-bottom-right {
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
