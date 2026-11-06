@@ -2,10 +2,10 @@ import { useState } from 'react';
 import Hero from '../components/home/Hero';
 import TrustBar from '../components/home/TrustBar';
 import ServiceGrid from '../components/home/ServiceGrid';
-import HealthGuide from '../components/home/HealthGuide';
+import DoctorPreview from '../components/home/DoctorPreview';
 import Technology from '../components/home/Technology';
 import PackageGrid from '../components/home/PackageGrid';
-import HomeSample from '../components/home/HomeSample';
+import HealthGuide from '../components/home/HealthGuide';
 import Testimonials from '../components/home/Testimonials';
 import LocationSection from '../components/home/LocationSection';
 import FinalCTA from '../components/home/FinalCTA';
@@ -25,10 +25,10 @@ const Home = () => {
       <Hero onOpenAppointment={() => handleOpenAppointment('General OPD / Emergency Consultation')} />
       <TrustBar />
       <ServiceGrid />
-      <HealthGuide onOpenAppointment={handleOpenAppointment} />
+      <DoctorPreview />
       <Technology />
       <PackageGrid />
-      <HomeSample />
+      <HealthGuide onOpenAppointment={handleOpenAppointment} />
       <Testimonials />
       <LocationSection />
       <FinalCTA />

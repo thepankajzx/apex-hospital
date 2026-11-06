@@ -1,88 +1,72 @@
-.helix-why-choose-section {
-  padding: 4.5rem 0;
-  background-color: #ffffff;
+.trustbar-section {
+  background: linear-gradient(135deg, #0057A8 0%, #0073e6 50%, #00B4D8 100%);
+  padding: 2.5rem 0;
 }
 
-.why-choose-header {
-  text-align: center;
-  margin-bottom: 2.75rem;
-}
-
-.why-choose-title {
-  font-family: var(--font-heading);
-  font-size: clamp(2rem, 3.2vw, 2.65rem);
-  font-weight: 800;
-  color: var(--color-heading);
-  letter-spacing: -0.02em;
-  margin-bottom: 0.5rem;
-}
-
-.why-choose-desc {
-  font-size: 1rem;
-  color: var(--color-text-light);
-  max-width: 620px;
-  margin: 0 auto;
-}
-
-.why-choose-grid {
+.trustbar-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
 }
 
-@media (max-width: 992px) {
-  .why-choose-grid {
+@media (max-width: 768px) {
+  .trustbar-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
 }
 
-@media (max-width: 520px) {
-  .why-choose-grid {
+@media (max-width: 480px) {
+  .trustbar-grid {
     grid-template-columns: 1fr;
   }
 }
 
-.why-card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 20px;
-  padding: 2rem 1.4rem;
-  text-align: center;
+.trustbar-card {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  transition: all 0.22s ease;
-  box-shadow: 0 4px 14px rgba(4, 78, 84, 0.03);
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 1.25rem 1.5rem;
+  backdrop-filter: blur(8px);
+  transition: all 0.2s ease;
 }
 
-.why-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--color-secondary);
-  box-shadow: 0 12px 28px rgba(4, 78, 84, 0.08);
+.trustbar-card:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
 }
 
-.why-icon-circle {
-  width: 54px;
-  height: 54px;
-  border-radius: 50%;
-  background: var(--color-surface-subtle);
+.trustbar-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.9) !important;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.25rem;
-  border: 1px solid var(--color-border-subtle);
+  flex-shrink: 0;
 }
 
-.why-card-title {
+.trustbar-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.trustbar-number {
   font-family: var(--font-heading);
-  font-size: 1.15rem;
-  font-weight: 800;
-  color: var(--color-heading);
-  margin-bottom: 0.4rem;
+  font-size: 1.9rem;
+  font-weight: 900;
+  color: #ffffff !important;
+  letter-spacing: -0.02em;
 }
 
-.why-card-desc {
-  font-size: 0.86rem;
-  color: var(--color-text-light);
-  line-height: 1.5;
+.trustbar-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: 0.1rem;
 }

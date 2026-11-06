@@ -1,181 +1,195 @@
-.helix-modern-hospital-section {
-  padding: 5rem 0 4rem;
-  background-color: var(--color-surface-subtle);
+.tech-section {
+  padding: 5rem 0;
+  background: #ffffff;
   border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
 }
 
-.helix-hospital-grid {
+/* ── 2-Col Grid ── */
+.tech-grid {
   display: grid;
-  grid-template-columns: 1fr 1.15fr;
+  grid-template-columns: 1fr 1.1fr;
   gap: 3.5rem;
   align-items: center;
-  margin-bottom: 3.5rem;
+  margin-bottom: 3rem;
 }
 
-@media (max-width: 992px) {
-  .helix-hospital-grid {
+@media (max-width: 1024px) {
+  .tech-grid {
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
 }
 
-/* Left Building Architecture Card */
-.helix-building-card {
+/* Visual Card (Left) */
+.tech-visual-card {
   background: #ffffff;
-  border-radius: 28px;
-  padding: 1rem;
-  box-shadow: var(--shadow-md);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 87, 168, 0.1);
   border: 1px solid var(--color-border);
 }
 
-.helix-building-inner {
-  background: linear-gradient(145deg, #02363a 0%, #044e54 60%, #0d6e75 100%);
-  border-radius: 20px;
-  padding: 2.5rem 1.75rem;
-  min-height: 380px;
+.tech-hospital-image {
+  height: 320px;
+  background: linear-gradient(145deg, #0A1F44 0%, #0057A8 45%, #00B4D8 100%);
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  color: #ffffff;
-  position: relative;
-  overflow: hidden;
+  padding: 1.5rem;
 }
 
-.helix-building-inner::after {
+/* Decorative circles on bg */
+.tech-hospital-image::before {
   content: '';
   position: absolute;
-  top: -50px;
-  right: -50px;
-  width: 200px;
-  height: 200px;
+  top: -60px;
+  right: -60px;
+  width: 240px;
+  height: 240px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(0, 168, 150, 0.25) 0%, transparent 70%);
+  background: rgba(255, 255, 255, 0.06);
 }
 
-.building-badge-tag {
+.tech-hospital-image::after {
+  content: '';
+  position: absolute;
+  bottom: -40px;
+  left: -40px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: rgba(0, 180, 216, 0.15);
+}
+
+.tech-img-overlay {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.tech-img-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(8px);
-  padding: 0.4rem 0.85rem;
-  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
   font-size: 0.75rem;
   font-weight: 700;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  width: fit-content;
 }
 
-.building-center-callout {
-  display: flex;
-  flex-direction: column;
-}
-
-.building-hospital-name {
+.tech-img-name h3 {
   font-family: var(--font-heading);
-  font-size: 2.1rem;
-  font-weight: 800;
+  font-size: 2rem;
+  font-weight: 900;
+  color: #ffffff;
   letter-spacing: -0.02em;
 }
 
-.building-hospital-sub {
-  font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.85);
+.tech-img-name p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
   margin-top: 0.2rem;
 }
 
-.building-bottom-pills {
+/* Stats row */
+.tech-stats-row {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  gap: 1rem;
+  background: #F8FBFF;
+  border-top: 1px solid var(--color-border);
 }
 
-.b-pill {
-  background: rgba(255, 255, 255, 0.92);
+.tech-stat-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex: 1;
+}
+
+.tech-stat-sep {
+  width: 1px;
+  height: 32px;
+  background: var(--color-border);
+}
+
+.tech-snum {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 800;
   color: var(--color-heading);
-  font-size: 0.78rem;
-  font-weight: 700;
-  padding: 0.35rem 0.75rem;
-  border-radius: var(--radius-pill);
+  line-height: 1;
 }
 
-/* Right Mission Copy */
-.helix-mission-text-side {
+.tech-slbl {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--color-text-light);
+  font-weight: 600;
+  margin-top: 0.1rem;
+}
+
+/* Text Side (Right) */
+.tech-text-side {
   text-align: left;
 }
 
-.helix-mini-badge {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--color-primary);
-  background: #ffffff;
-  border: 1px solid var(--color-border);
-  padding: 0.35rem 0.85rem;
-  border-radius: var(--radius-pill);
-  margin-bottom: 0.85rem;
-}
-
-.helix-mission-heading {
-  font-family: var(--font-heading);
-  font-size: clamp(2rem, 3.2vw, 2.75rem);
-  font-weight: 800;
-  color: var(--color-heading);
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  margin-bottom: 1rem;
-}
-
-.helix-mission-lead {
-  font-size: 1rem;
-  color: var(--color-text-light);
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-}
-
-.helix-benefit-checklist {
+.tech-checklist {
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
   margin-bottom: 2rem;
 }
 
-.helix-check-item {
+.tech-check-row {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.65rem;
   font-size: 0.92rem;
   font-weight: 600;
   color: var(--color-heading);
+  line-height: 1.4;
 }
 
-.helix-mission-cta-row {
+.tech-cta-row {
   display: flex;
   align-items: center;
   gap: 1.25rem;
+  flex-wrap: wrap;
 }
 
-.helix-learn-btn {
+.tech-btn-primary {
   display: inline-flex !important;
   align-items: center;
   gap: 0.5rem;
   background: var(--color-primary) !important;
   color: #ffffff !important;
-  border-radius: var(--radius-pill) !important;
-  padding: 0.75rem 1.65rem !important;
+  border-radius: 999px !important;
+  padding: 0.8rem 1.75rem !important;
   font-size: 0.9rem !important;
   font-weight: 700 !important;
   border: none !important;
-  box-shadow: 0 4px 15px rgba(4, 78, 84, 0.2) !important;
+  box-shadow: var(--shadow-blue) !important;
+  transition: all 0.2s ease !important;
 }
 
-.helix-learn-btn:hover {
+.tech-btn-primary:hover {
   background: var(--color-primary-dark) !important;
+  transform: translateY(-2px);
 }
 
-.helix-story-link {
+.tech-link-secondary {
   font-size: 0.9rem;
   font-weight: 700;
   color: var(--color-secondary);
@@ -183,67 +197,70 @@
   transition: all 0.2s ease;
 }
 
-.helix-story-link:hover {
-  text-decoration: underline;
+.tech-link-secondary:hover {
+  color: var(--color-primary);
 }
 
-/* 4 Metrics Strip */
-.helix-key-metrics-strip {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.25rem;
-  background: #ffffff;
+/* ── 4 Metric Strip ── */
+.tech-metrics-strip {
+  display: flex;
+  align-items: center;
+  background: #F0F7FF;
   border: 1px solid var(--color-border);
   border-radius: 20px;
-  padding: 1.5rem;
-  box-shadow: var(--shadow-sm);
+  padding: 1.75rem 2rem;
+  gap: 1rem;
 }
 
-@media (max-width: 992px) {
-  .helix-key-metrics-strip {
-    grid-template-columns: repeat(2, 1fr);
+@media (max-width: 768px) {
+  .tech-metrics-strip {
+    flex-wrap: wrap;
     gap: 1.5rem;
   }
-}
-
-@media (max-width: 480px) {
-  .helix-key-metrics-strip {
-    grid-template-columns: 1fr;
+  .tech-metric-divider {
+    display: none;
   }
 }
 
-.helix-metric-col {
+.tech-metric {
+  flex: 1;
   display: flex;
   align-items: center;
   gap: 0.85rem;
-  padding: 0.5rem;
+  min-width: 150px;
 }
 
-.metric-icon-box {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: var(--color-surface-subtle);
+.tech-metric-divider {
+  width: 1px;
+  height: 50px;
+  background: var(--color-border);
+  flex-shrink: 0;
+}
+
+.tech-metric-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
-.metric-text-box {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.2;
-}
-
-.metric-number {
+.tech-metric-num {
+  display: block;
   font-family: var(--font-heading);
-  font-size: 1.45rem;
-  font-weight: 800;
+  font-size: 1.5rem;
+  font-weight: 900;
   color: var(--color-heading);
+  line-height: 1;
+  letter-spacing: -0.02em;
 }
 
-.metric-title {
+.tech-metric-lbl {
+  display: block;
   font-size: 0.78rem;
   color: var(--color-text-light);
   font-weight: 600;
+  margin-top: 0.2rem;
 }

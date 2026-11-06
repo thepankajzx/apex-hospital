@@ -1,92 +1,135 @@
 import { Link } from 'react-router-dom';
-import { ArrowUpRight, Activity, Heart, Stethoscope, Sparkles } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import './ServiceGrid.css';
 
-interface SpecialityCard {
+interface Speciality {
   id: string;
   title: string;
-  tagline: string;
-  icon: string;
-  link: string;
-  accentBg: string;
+  desc: string;
+  emoji: string;
+  iconBg: string;
+  iconColor: string;
+  borderColor: string;
 }
 
-const specialities: SpecialityCard[] = [
+const specialities: Speciality[] = [
   {
     id: 'neurology',
     title: 'Neurology',
-    tagline: 'Expert care for your brain and nervous system.',
-    icon: 'brain',
-    link: '/services',
-    accentBg: '#e6f7f5'
+    desc: 'Expert care for brain, spine and nervous system disorders.',
+    emoji: '🧠',
+    iconBg: '#EDE9FE',
+    iconColor: '#7C3AED',
+    borderColor: '#DDD6FE',
   },
   {
     id: 'cardiology',
     title: 'Cardiology',
-    tagline: 'Keep your heart healthy, monitored and strong.',
-    icon: 'heart',
-    link: '/services',
-    accentBg: '#f0f9ff'
+    desc: 'Complete heart care — ECG, echo, 2D & specialist consultation.',
+    emoji: '❤️',
+    iconBg: '#FEE2E4',
+    iconColor: '#E63946',
+    borderColor: '#FCA5A5',
   },
   {
     id: 'radiology',
-    title: 'Radiology & Imaging',
-    tagline: 'Advanced 1.5T MRI, 16-Slice CT, and 4D Sonography.',
-    icon: 'lungs',
-    link: '/services',
-    accentBg: '#fef3c7'
+    title: 'Radiology & MRI',
+    desc: '1.5T Silent MRI, 16-Slice CT, 4D Ultrasound & X-Ray.',
+    emoji: '🔬',
+    iconBg: '#DBEAFE',
+    iconColor: '#1D4ED8',
+    borderColor: '#93C5FD',
+  },
+  {
+    id: 'orthopedics',
+    title: 'Orthopedics',
+    desc: 'Bone, joint, spine & sports injury treatment by expert surgeons.',
+    emoji: '🦴',
+    iconBg: '#FEF3C7',
+    iconColor: '#D97706',
+    borderColor: '#FDE68A',
   },
   {
     id: 'general-medicine',
     title: 'General Medicine',
-    tagline: 'Complete care for you and your whole family.',
-    icon: 'stethoscope',
-    link: '/services',
-    accentBg: '#f3e8ff'
-  }
+    desc: 'Comprehensive OPD consultation for all ages & conditions.',
+    emoji: '🩺',
+    iconBg: '#D1FAE5',
+    iconColor: '#059669',
+    borderColor: '#6EE7B7',
+  },
+  {
+    id: 'gynecology',
+    title: 'Gynecology',
+    desc: "Women's health, prenatal care, maternity and gynae OPD.",
+    emoji: '🌸',
+    iconBg: '#FCE7F3',
+    iconColor: '#DB2777',
+    borderColor: '#F9A8D4',
+  },
+  {
+    id: 'pediatrics',
+    title: 'Pediatrics',
+    desc: 'Dedicated child health care — newborn to teen specialists.',
+    emoji: '👶',
+    iconBg: '#E0F9FF',
+    iconColor: '#0891B2',
+    borderColor: '#67E8F9',
+  },
+  {
+    id: 'pathology',
+    title: 'Pathology & Lab',
+    desc: 'Full blood panel, biopsy, home sample collection available.',
+    emoji: '🧪',
+    iconBg: '#F3E8FF',
+    iconColor: '#9333EA',
+    borderColor: '#D8B4FE',
+  },
 ];
 
 const ServiceGrid = () => {
-  const renderIcon = (type: string) => {
-    switch (type) {
-      case 'brain': return <Activity size={32} className="text-teal-700" />;
-      case 'heart': return <Heart size={32} className="text-red-500 fill-red-100" />;
-      case 'lungs': return <Sparkles size={32} className="text-amber-600" />;
-      default: return <Stethoscope size={32} className="text-primary" />;
-    }
-  };
-
   return (
-    <section className="helix-specialities-section" id="services">
+    <section className="sg-section" id="services">
       <div className="container">
-        {/* Section Headline */}
-        <div className="helix-section-header">
-          <span className="helix-tag-badge">Specialised Clinical Care</span>
-          <h2 className="helix-section-title">Key Medical Specialities</h2>
-          <p className="helix-section-subtitle">
-            Providing evidence-based outpatient consultations and 24/7 advanced radiological diagnostics.
+        <div className="sg-header">
+          <span className="section-badge">Our Specialities</span>
+          <h2 className="section-title">Expert Medical Specialities</h2>
+          <p className="section-subtitle">
+            From advanced diagnostics to specialist consultations — comprehensive healthcare under one roof in Solan.
           </p>
         </div>
 
-        {/* 4 Clean Rounded Editorial Cards */}
-        <div className="helix-speciality-grid">
+        <div className="sg-grid">
           {specialities.map((item) => (
-            <Link key={item.id} to={item.link} className="helix-spec-card">
-              <div className="helix-spec-top">
-                <div className="helix-spec-icon-box" style={{ background: item.accentBg }}>
-                  {renderIcon(item.icon)}
+            <Link
+              key={item.id}
+              to="/services"
+              className="sg-card"
+              style={{ '--border-hover': item.iconColor } as React.CSSProperties}
+            >
+              <div className="sg-card-top">
+                <div
+                  className="sg-icon-box"
+                  style={{ background: item.iconBg, border: `1.5px solid ${item.borderColor}` }}
+                >
+                  <span className="sg-emoji">{item.emoji}</span>
                 </div>
-                <div className="helix-spec-arrow">
-                  <ArrowUpRight size={18} />
+                <div className="sg-arrow">
+                  <ArrowUpRight size={16} />
                 </div>
               </div>
-
-              <div className="helix-spec-bottom">
-                <h3 className="helix-spec-title">{item.title}</h3>
-                <p className="helix-spec-desc">{item.tagline}</p>
+              <div className="sg-card-bottom">
+                <h3 className="sg-title">{item.title}</h3>
+                <p className="sg-desc">{item.desc}</p>
               </div>
             </Link>
           ))}
+        </div>
+
+        <div className="sg-footer-link">
+          <Link to="/services" className="sg-view-all">
+            View All Services <ArrowUpRight size={16} />
+          </Link>
         </div>
       </div>
     </section>

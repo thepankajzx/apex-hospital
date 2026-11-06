@@ -1,114 +1,138 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, ShieldCheck, Activity, Users, Award, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Activity, Users, ShieldCheck, Award } from 'lucide-react';
 import { Button } from '../ui/Button';
 import './Technology.css';
 
 const Technology = () => {
   return (
-    <section className="helix-modern-hospital-section">
+    <section className="tech-section">
       <div className="container">
-        {/* Main 2-Column Showcase */}
-        <div className="helix-hospital-grid">
-          {/* Left Column: Glass Architectural Hospital Showcase Card */}
-          <div className="helix-building-card">
-            <div className="helix-building-inner">
-              <div className="building-badge-tag">
-                <ShieldCheck size={15} />
-                <span>Modern Facilities & Advanced Diagnostics</span>
+
+        {/* ── 2 Column Main Grid ── */}
+        <div className="tech-grid">
+
+          {/* Left: Hospital visual card */}
+          <div className="tech-visual-card">
+            {/* Gradient hospital image placeholder */}
+            <div className="tech-hospital-image">
+              <div className="tech-img-overlay">
+                <div className="tech-img-badge">
+                  <ShieldCheck size={16} />
+                  <span>Advanced Medical Facilities</span>
+                </div>
+                <div className="tech-img-name">
+                  <h3>Apex Hospital</h3>
+                  <p>Solan, Himachal Pradesh</p>
+                </div>
               </div>
-              <div className="building-center-callout">
-                <span className="building-hospital-name">Apex Hospital</span>
-                <span className="building-hospital-sub">Solan, Himachal Pradesh</span>
+            </div>
+
+            {/* Stats row below image */}
+            <div className="tech-stats-row">
+              <div className="tech-stat-item">
+                <Activity size={18} className="text-primary" />
+                <div>
+                  <span className="tech-snum">1.5T</span>
+                  <span className="tech-slbl">MRI</span>
+                </div>
               </div>
-              <div className="building-bottom-pills">
-                <div className="b-pill">1.5T Silent MRI</div>
-                <div className="b-pill">16-Slice CT</div>
-                <div className="b-pill">24/7 ICU Trauma</div>
+              <div className="tech-stat-sep"></div>
+              <div className="tech-stat-item">
+                <ShieldCheck size={18} className="text-secondary" />
+                <div>
+                  <span className="tech-snum">16-Slice</span>
+                  <span className="tech-slbl">CT Scan</span>
+                </div>
+              </div>
+              <div className="tech-stat-sep"></div>
+              <div className="tech-stat-item">
+                <Award size={18} style={{ color: '#E63946' }} />
+                <div>
+                  <span className="tech-snum">24/7</span>
+                  <span className="tech-slbl">ICU Trauma</span>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Editorial Mission & Value Copy */}
-          <div className="helix-mission-text-side">
-            <span className="helix-mini-badge">About Apex Hospital</span>
-            <h2 className="helix-mission-heading">
+          {/* Right: Text copy */}
+          <div className="tech-text-side">
+            <span className="section-badge">About Apex Hospital</span>
+            <h2 className="section-title" style={{ textAlign: 'left', margin: '0 0 1rem' }}>
               Modern Hospital for a <span className="text-primary">Healthier Future</span>
             </h2>
-            <p className="helix-mission-lead">
-              Apex Hospital is a premier multi-speciality healthcare center in Solan, offering world-class medical services with a team of experienced specialists, advanced radiological imaging, and a patient-first approach.
+            <p className="section-subtitle" style={{ textAlign: 'left', margin: '0 0 1.75rem', maxWidth: '100%' }}>
+              Apex Hospital is Solan's premier multi-speciality healthcare centre — combining world-class diagnostic technology with experienced specialist doctors and a patient-first philosophy.
             </p>
 
-            <div className="helix-benefit-checklist">
-              <div className="helix-check-item">
-                <CheckCircle2 size={18} className="text-secondary" />
-                <span>24/7 Emergency & Critical Trauma Intensive Care</span>
+            <div className="tech-checklist">
+              <div className="tech-check-row">
+                <CheckCircle2 size={18} style={{ color: '#10B981', flexShrink: 0 }} />
+                <span>24/7 Emergency, ICU & Trauma Intensive Care</span>
               </div>
-              <div className="helix-check-item">
-                <CheckCircle2 size={18} className="text-secondary" />
-                <span>NABH Aligned Clinical Protocols & Diagnostic Precision</span>
+              <div className="tech-check-row">
+                <CheckCircle2 size={18} style={{ color: '#10B981', flexShrink: 0 }} />
+                <span>Advanced 1.5T MRI, 16-Slice CT & Digital X-Ray</span>
               </div>
-              <div className="helix-check-item">
-                <CheckCircle2 size={18} className="text-secondary" />
-                <span>Doorstep Blood Sample Collection Across Solan & Suburbs</span>
+              <div className="tech-check-row">
+                <CheckCircle2 size={18} style={{ color: '#10B981', flexShrink: 0 }} />
+                <span>Doorstep Blood Sample Collection — Solan & Suburbs</span>
+              </div>
+              <div className="tech-check-row">
+                <CheckCircle2 size={18} style={{ color: '#10B981', flexShrink: 0 }} />
+                <span>15+ Senior Specialist Consultants On-Call</span>
               </div>
             </div>
 
-            <div className="helix-mission-cta-row">
+            <div className="tech-cta-row">
               <Link to="/about">
-                <Button variant="primary" className="helix-learn-btn">
+                <Button variant="primary" className="tech-btn-primary">
                   <span>Learn More</span>
                   <ArrowRight size={16} />
                 </Button>
               </Link>
-              <Link to="/services" className="helix-story-link">
-                View All Specialities
+              <Link to="/services" className="tech-link-secondary">
+                All Specialities →
               </Link>
             </div>
           </div>
         </div>
 
-        {/* 4-Stat Strip (Helix Style: 250+ Beds, 20K+ Patients, 99% Satisfaction, 15+ Specialists) */}
-        <div className="helix-key-metrics-strip">
-          <div className="helix-metric-col">
-            <div className="metric-icon-box">
-              <Activity size={22} className="text-primary" />
+        {/* ── 4 Metric Strip ── */}
+        <div className="tech-metrics-strip">
+          <div className="tech-metric">
+            <div className="tech-metric-icon" style={{ background: '#EEF6FF', color: '#0057A8' }}>
+              <Activity size={22} />
             </div>
-            <div className="metric-text-box">
-              <span className="metric-number">50+</span>
-              <span className="metric-title">Hospital Beds & Daycare</span>
-            </div>
+            <span className="tech-metric-num">50+</span>
+            <span className="tech-metric-lbl">Hospital Beds</span>
           </div>
-
-          <div className="helix-metric-col">
-            <div className="metric-icon-box">
-              <Users size={22} className="text-primary" />
+          <div className="tech-metric-divider"></div>
+          <div className="tech-metric">
+            <div className="tech-metric-icon" style={{ background: '#D1FAE5', color: '#10B981' }}>
+              <Users size={22} />
             </div>
-            <div className="metric-text-box">
-              <span className="metric-number">25,000+</span>
-              <span className="metric-title">Satisfied Patients</span>
-            </div>
+            <span className="tech-metric-num">25,000+</span>
+            <span className="tech-metric-lbl">Patients Treated</span>
           </div>
-
-          <div className="helix-metric-col">
-            <div className="metric-icon-box">
-              <ShieldCheck size={22} className="text-primary" />
+          <div className="tech-metric-divider"></div>
+          <div className="tech-metric">
+            <div className="tech-metric-icon" style={{ background: '#E0F9FF', color: '#00B4D8' }}>
+              <ShieldCheck size={22} />
             </div>
-            <div className="metric-text-box">
-              <span className="metric-number">99.4%</span>
-              <span className="metric-title">Diagnostic Accuracy</span>
-            </div>
+            <span className="tech-metric-num">99.4%</span>
+            <span className="tech-metric-lbl">Diagnostic Accuracy</span>
           </div>
-
-          <div className="helix-metric-col">
-            <div className="metric-icon-box">
-              <Award size={22} className="text-primary" />
+          <div className="tech-metric-divider"></div>
+          <div className="tech-metric">
+            <div className="tech-metric-icon" style={{ background: '#FEE2E4', color: '#E63946' }}>
+              <Award size={22} />
             </div>
-            <div className="metric-text-box">
-              <span className="metric-number">15+</span>
-              <span className="metric-title">Senior Consultants</span>
-            </div>
+            <span className="tech-metric-num">15+</span>
+            <span className="tech-metric-lbl">Senior Consultants</span>
           </div>
         </div>
+
       </div>
     </section>
   );

@@ -2,9 +2,23 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Phone, MapPin, Clock, Shield } from 'lucide-react';
 import './Footer.css';
 
+const WhatsAppFloat = () => (
+  <a
+    href="https://wa.me/917018168156?text=Hi%20Apex%20Hospital%2C%20I%20want%20to%20book%20an%20appointment."
+    target="_blank"
+    rel="noopener noreferrer"
+    className="whatsapp-float"
+    title="Chat on WhatsApp"
+  >
+    <span className="whatsapp-float-icon">💬</span>
+    <span>Chat with Us</span>
+  </a>
+);
+
 const Footer = () => {
   return (
     <footer className="helix-footer">
+      <WhatsAppFloat />
       <div className="container">
         {/* Top Floating Banner: 'Your Health, Our Mission' (from Helix screenshot) */}
         <div className="helix-footer-banner">
