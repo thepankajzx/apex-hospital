@@ -1,109 +1,249 @@
-.technology-section {
-  background-color: var(--color-background);
-  overflow: hidden;
+.helix-modern-hospital-section {
+  padding: 5rem 0 4rem;
+  background-color: var(--color-surface-subtle);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
 }
 
-.technology-grid {
+.helix-hospital-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-3xl);
+  grid-template-columns: 1fr 1.15fr;
+  gap: 3.5rem;
   align-items: center;
-}
-
-.technology-features {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
-}
-
-.tech-feature-item {
-  background-color: var(--color-surface);
-  padding: var(--spacing-lg);
-  border-radius: var(--radius-md);
-  border-left: 4px solid var(--color-accent);
-  box-shadow: var(--shadow-sm);
-}
-
-.tech-feature-title {
-  color: var(--color-primary);
-  margin-bottom: var(--spacing-xs);
-  font-size: 1.125rem;
-}
-
-.tech-feature-desc {
-  color: var(--color-text-light);
-  font-size: 0.9375rem;
-}
-
-.tech-cta {
-  margin-top: 1.75rem;
-}
-
-.technology-visuals {
-  position: relative;
-  height: 500px;
-}
-
-.tech-image-main {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 80%;
-  height: 80%;
-  background-color: var(--color-primary-light);
-  border-radius: var(--radius-lg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255,255,255,0.7);
-  box-shadow: var(--shadow-lg);
-  z-index: 1;
-}
-
-.tech-image-secondary {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 60%;
-  height: 50%;
-  background-color: var(--color-secondary);
-  border-radius: var(--radius-lg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255,255,255,0.7);
-  box-shadow: var(--shadow-md);
-  z-index: 2;
-  border: 4px solid var(--color-background);
-}
-
-.tech-glow {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, rgba(0,180,216,0.3) 0%, transparent 70%);
-  transform: translate(-50%, -50%);
+  margin-bottom: 3.5rem;
 }
 
 @media (max-width: 992px) {
-  .technology-grid {
+  .helix-hospital-grid {
     grid-template-columns: 1fr;
-    gap: var(--spacing-2xl);
+    gap: 2.5rem;
   }
-  
-  .technology-visuals {
-    height: 400px;
-    order: -1;
+}
+
+/* Left Building Architecture Card */
+.helix-building-card {
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 1rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-border);
+}
+
+.helix-building-inner {
+  background: linear-gradient(145deg, #02363a 0%, #044e54 60%, #0d6e75 100%);
+  border-radius: 20px;
+  padding: 2.5rem 1.75rem;
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.helix-building-inner::after {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 168, 150, 0.25) 0%, transparent 70%);
+}
+
+.building-badge-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.building-center-callout {
+  display: flex;
+  flex-direction: column;
+}
+
+.building-hospital-name {
+  font-family: var(--font-heading);
+  font-size: 2.1rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.building-hospital-sub {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: 0.2rem;
+}
+
+.building-bottom-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.b-pill {
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--color-heading);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-pill);
+}
+
+/* Right Mission Copy */
+.helix-mission-text-side {
+  text-align: left;
+}
+
+.helix-mini-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-primary);
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
+  margin-bottom: 0.85rem;
+}
+
+.helix-mission-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  font-weight: 800;
+  color: var(--color-heading);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+.helix-mission-lead {
+  font-size: 1rem;
+  color: var(--color-text-light);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.helix-benefit-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 2rem;
+}
+
+.helix-check-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--color-heading);
+}
+
+.helix-mission-cta-row {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.helix-learn-btn {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--color-primary) !important;
+  color: #ffffff !important;
+  border-radius: var(--radius-pill) !important;
+  padding: 0.75rem 1.65rem !important;
+  font-size: 0.9rem !important;
+  font-weight: 700 !important;
+  border: none !important;
+  box-shadow: 0 4px 15px rgba(4, 78, 84, 0.2) !important;
+}
+
+.helix-learn-btn:hover {
+  background: var(--color-primary-dark) !important;
+}
+
+.helix-story-link {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-secondary);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.helix-story-link:hover {
+  text-decoration: underline;
+}
+
+/* 4 Metrics Strip */
+.helix-key-metrics-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+@media (max-width: 992px) {
+  .helix-key-metrics-strip {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
-  
-  .tech-image-main {
-    width: 100%;
-    height: 100%;
+}
+
+@media (max-width: 480px) {
+  .helix-key-metrics-strip {
+    grid-template-columns: 1fr;
   }
-  
-  .tech-image-secondary {
-    display: none;
-  }
+}
+
+.helix-metric-col {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.5rem;
+}
+
+.metric-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--color-surface-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.metric-text-box {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.metric-number {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--color-heading);
+}
+
+.metric-title {
+  font-size: 0.78rem;
+  color: var(--color-text-light);
+  font-weight: 600;
 }

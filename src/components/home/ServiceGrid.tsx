@@ -1,96 +1,92 @@
-import { useRef } from 'react';
-import { ArrowRight, ChevronLeft, ChevronRight, Heart, Stethoscope, Activity, PhoneCall } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { services, quickFeatures } from '../../data/services';
+import { ArrowUpRight, Activity, Heart, Stethoscope, Sparkles } from 'lucide-react';
 import './ServiceGrid.css';
 
+interface SpecialityCard {
+  id: string;
+  title: string;
+  tagline: string;
+  icon: string;
+  link: string;
+  accentBg: string;
+}
+
+const specialities: SpecialityCard[] = [
+  {
+    id: 'neurology',
+    title: 'Neurology',
+    tagline: 'Expert care for your brain and nervous system.',
+    icon: 'brain',
+    link: '/services',
+    accentBg: '#e6f7f5'
+  },
+  {
+    id: 'cardiology',
+    title: 'Cardiology',
+    tagline: 'Keep your heart healthy, monitored and strong.',
+    icon: 'heart',
+    link: '/services',
+    accentBg: '#f0f9ff'
+  },
+  {
+    id: 'radiology',
+    title: 'Radiology & Imaging',
+    tagline: 'Advanced 1.5T MRI, 16-Slice CT, and 4D Sonography.',
+    icon: 'lungs',
+    link: '/services',
+    accentBg: '#fef3c7'
+  },
+  {
+    id: 'general-medicine',
+    title: 'General Medicine',
+    tagline: 'Complete care for you and your whole family.',
+    icon: 'stethoscope',
+    link: '/services',
+    accentBg: '#f3e8ff'
+  }
+];
+
 const ServiceGrid = () => {
-  const carouselRef = useRef<HTMLDivElement>(null);
-
-  const scroll = (direction: 'left' | 'right') => {
-    if (carouselRef.current) {
-      const scrollAmount = direction === 'left' ? -320 : 320;
-      carouselRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    }
-  };
-
-  const getQuickIcon = (name: string) => {
-    switch (name) {
-      case 'heart': return <Heart size={20} className="text-secondary" />;
-      case 'stethoscope': return <Stethoscope size={20} className="text-secondary" />;
-      case 'activity': return <Activity size={20} className="text-secondary" />;
-      case 'emergency': return <PhoneCall size={20} className="text-secondary" />;
-      default: return <Activity size={20} className="text-secondary" />;
+  const renderIcon = (type: string) => {
+    switch (type) {
+      case 'brain': return <Activity size={32} className="text-teal-700" />;
+      case 'heart': return <Heart size={32} className="text-red-500 fill-red-100" />;
+      case 'lungs': return <Sparkles size={32} className="text-amber-600" />;
+      default: return <Stethoscope size={32} className="text-primary" />;
     }
   };
 
   return (
-    <section className="service-section py-3xl bg-background">
+    <section className="helix-specialities-section" id="services">
       <div className="container">
-        {/* Section Header with Carousel Navigation */}
-        <div className="service-header-row mb-xl">
-          <div>
-            <h2 className="text-3xl md:text-4xl text-primary font-bold mb-xs">Departments & Treatments</h2>
-            <p className="text-md text-text-light max-w-xl">
-              Comprehensive clinical departments & modern medical care under expert guidance.
-            </p>
-          </div>
-          <div className="carousel-nav-buttons">
-            <button onClick={() => scroll('left')} className="carousel-btn" aria-label="Previous services">
-              <ChevronLeft size={20} />
-            </button>
-            <button onClick={() => scroll('right')} className="carousel-btn" aria-label="Next services">
-              <ChevronRight size={20} />
-            </button>
-          </div>
+        {/* Section Headline */}
+        <div className="helix-section-header">
+          <span className="helix-tag-badge">Specialised Clinical Care</span>
+          <h2 className="helix-section-title">Key Medical Specialities</h2>
+          <p className="helix-section-subtitle">
+            Providing evidence-based outpatient consultations and 24/7 advanced radiological diagnostics.
+          </p>
         </div>
 
-        {/* Horizontal Carousel (Swipeable on Mobile, Scrollable on Desktop) */}
-        <div className="service-carousel" ref={carouselRef}>
-          {services.map((service) => (
-            <Link to={`/services/${service.id}`} key={service.id} className="service-carousel-card">
-              <div className="service-img-wrapper">
-                <img src={service.image} alt={service.name} className="service-card-img" loading="lazy" />
-              </div>
-              <div className="service-card-content">
-                <span className="service-badge-pill">{service.badge}</span>
-                <h3 className="service-card-title">{service.name}</h3>
-                <p className="service-card-desc">{service.shortDescription}</p>
-                
-                <div className="service-card-action">
-                  <span className="service-view-text">View Service</span>
-                  <span className="service-circle-arrow">
-                    <ArrowRight size={14} />
-                  </span>
+        {/* 4 Clean Rounded Editorial Cards */}
+        <div className="helix-speciality-grid">
+          {specialities.map((item) => (
+            <Link key={item.id} to={item.link} className="helix-spec-card">
+              <div className="helix-spec-top">
+                <div className="helix-spec-icon-box" style={{ background: item.accentBg }}>
+                  {renderIcon(item.icon)}
+                </div>
+                <div className="helix-spec-arrow">
+                  <ArrowUpRight size={18} />
                 </div>
               </div>
-            </Link>
-          ))}
-        </div>
 
-        {/* Quick Highlights Bar (Compact 2-Column Cards) */}
-        <div className="quick-specialist-grid mt-2xl">
-          {quickFeatures.map((item) => (
-            <Link to="/services" key={item.id} className="quick-spec-card">
-              <div className="quick-spec-icon-box">
-                {getQuickIcon(item.iconName)}
-              </div>
-              <div className="quick-spec-info">
-                <h4 className="quick-spec-title">{item.title}</h4>
-                <p className="quick-spec-subtitle">{item.subtitle}</p>
-              </div>
-              <div className="quick-spec-arrow">
-                <ArrowRight size={16} />
+              <div className="helix-spec-bottom">
+                <h3 className="helix-spec-title">{item.title}</h3>
+                <p className="helix-spec-desc">{item.tagline}</p>
               </div>
             </Link>
           ))}
-        </div>
-
-        {/* View All CTA */}
-        <div className="text-center mt-2xl">
-          <Link to="/services" className="inline-flex items-center gap-xs font-bold text-accent hover:text-primary transition-colors text-md">
-            View All Specialized Facilities & Services <ArrowRight size={18} />
-          </Link>
         </div>
       </div>
     </section>

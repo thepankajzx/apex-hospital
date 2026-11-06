@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { Menu, X, Phone, Calendar, Clock } from 'lucide-react';
+import { Menu, X, Phone, Calendar, ArrowRight, Shield } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { AppointmentModal } from '../ui/AppointmentModal';
-import { ApexLogo } from '../ui/ApexLogo';
 import './Header.css';
 
 const Header = () => {
@@ -13,7 +12,7 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 15);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -23,85 +22,102 @@ const Header = () => {
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
     { name: 'Services', path: '/services' },
-    { name: 'Health Packages', path: '/health-packages' },
     { name: 'Doctors', path: '/doctors' },
-    { name: 'Patient Info', path: '/patient-information' },
+    { name: 'Health Packages', path: '/health-packages' },
+    { name: 'Contact', path: '/contact' },
   ];
 
   return (
     <>
-    <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
-      <div className="header-top">
-        <div className="container flex justify-between items-center">
-          <div className="flex items-center gap-md font-semibold text-xs text-primary">
-            <span className="flex items-center gap-xs">
-               <Clock size={12} className="text-accent" /> 24x7 Emergency Services Available
-            </span>
-          </div>
-          <div className="flex items-center gap-md font-bold text-sm">
-             <a href="tel:+917018168156" className="flex items-center gap-xs text-primary hover:text-accent transition-colors">
-               <Phone size={14} className="text-secondary" /> +91 70181 68156
-             </a>
-          </div>
-        </div>
-      </div>
-      
-      <div className="header-main">
-        <div className="container flex justify-between items-center h-full">
-          <Link to="/" className="logo flex items-center">
-            <ApexLogo size="sm" />
+      <header className={`modern-header ${isScrolled ? 'scrolled' : ''}`}>
+        <div className="container header-container">
+          {/* Logo brand */}
+          <Link to="/" className="brand-logo">
+            <div className="brand-logo-icon">
+              <Shield size={20} className="text-white fill-white" />
+            </div>
+            <div className="brand-logo-text">
+              <span className="brand-title">Apex</span>
+              <span className="brand-sub">HOSPITAL & DIAGNOSTICS</span>
+            </div>
           </Link>
 
-          <nav className="desktop-nav">
+          {/* Clean Pill Desktop Nav */}
+          <nav className="desktop-navigation">
             {navLinks.map((link) => (
               <NavLink 
                 key={link.name} 
                 to={link.path}
-                className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+                className={({ isActive }) => isActive ? 'nav-item active' : 'nav-item'}
               >
                 {link.name}
               </NavLink>
             ))}
           </nav>
 
-          <div className="header-actions">
-            <Button variant="primary" onClick={() => setModalOpen(true)} className="book-btn">
-              <Calendar size={16} className="mr-sm" /> Book Appointment
-            </Button>
-            <button 
-              className="mobile-menu-btn text-primary"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          {/* Actions: Direct Emergency Call + Book Appointment Pill */}
+          <div className="header-cta-group">
+            <a href="tel:+917018168156" className="emergency-quick-pill" title="24/7 Helpline">
+              <span className="emergency-icon-circle">
+                <Phone size={13} />
+              </span>
+              <div className="emergency-text-col">
+                <span className="emergency-label">24/7 Helpline</span>
+                <span className="emergency-num">+91 70181 68156</span>
+              </div>
+            </a>
+
+            <Button 
+              variant="primary" 
+              onClick={() => setModalOpen(true)} 
+              className="header-pill-appointment-btn"
             >
-              {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+              <span>Book Appointment</span>
+              <ArrowRight size={15} />
+            </Button>
+
+            <button 
+              className="mobile-toggle-btn"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle Navigation Menu"
+            >
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
-      </div>
 
-      {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <div className="mobile-menu bg-surface shadow-lg absolute top-full left-0 w-full border-t border-border">
-          <nav className="flex flex-col p-md">
-            {navLinks.map((link) => (
-              <Link 
-                key={link.name} 
-                to={link.path}
-                className="py-sm px-md font-bold text-primary border-b border-border hover:bg-primary-light/10 transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {link.name}
-              </Link>
-            ))}
-            <div className="mt-md p-md">
-               <Button variant="primary" fullWidth onClick={() => { setModalOpen(true); setMobileMenuOpen(false); }}>
-                 Book Appointment
-               </Button>
-            </div>
-          </nav>
-        </div>
-      )}
-    </header>
-    <AppointmentModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
+        {/* Mobile Dropdown Menu */}
+        {mobileMenuOpen && (
+          <div className="mobile-dropdown-panel animate-fade-in">
+            <nav className="mobile-nav-list">
+              {navLinks.map((link) => (
+                <Link 
+                  key={link.name} 
+                  to={link.path}
+                  className="mobile-nav-link"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {link.name}
+                </Link>
+              ))}
+              <div className="mobile-cta-wrap">
+                <Button 
+                  variant="primary" 
+                  fullWidth 
+                  onClick={() => { setModalOpen(true); setMobileMenuOpen(false); }}
+                >
+                  <Calendar size={16} className="mr-sm" /> Book Appointment
+                </Button>
+                <a href="tel:+917018168156" className="mobile-emergency-call">
+                  <Phone size={14} /> Call Emergency: +91 70181 68156
+                </a>
+              </div>
+            </nav>
+          </div>
+        )}
+      </header>
+
+      <AppointmentModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </>
   );
 };
