@@ -41,9 +41,27 @@ const About = () => {
             </div>
           </div>
           
-          <div className="rounded-lg overflow-hidden shadow-lg aspect-square bg-primary-light flex items-center justify-center relative border border-border">
-            <div className="absolute inset-0 bg-gradient-to-tr from-primary to-accent opacity-50"></div>
-            <span className="relative z-10 text-white font-medium">[Hospital Exterior/Interior Image]</span>
+          <div className="rounded-xl overflow-hidden shadow-md bg-gradient-to-tr from-primary to-primary-light text-white p-2xl flex flex-col justify-between border border-border min-h-[360px] relative">
+            <div>
+              <span className="inline-block bg-white/20 backdrop-blur-md px-md py-xs rounded-full text-xs font-bold uppercase tracking-wider mb-md">
+                Established Center of Excellence
+              </span>
+              <h3 className="text-2xl font-bold mb-sm text-white">Apex Hospital & Advanced Diagnostics</h3>
+              <p className="text-white/80 text-sm leading-relaxed mb-lg">
+                Centrally positioned in Solan, equipped with advanced 1.5T MRI, multi-detector CT, 24/7 ICU & trauma units, fully automated pathology, and specialized outpatient consults.
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-2 gap-md pt-md border-t border-white/15">
+              <div>
+                <span className="block text-2xl font-black text-secondary-light">24/7</span>
+                <span className="text-xs text-white/70 font-semibold">Trauma & Diagnostics</span>
+              </div>
+              <div>
+                <span className="block text-2xl font-black text-secondary-light">1.5T / 16-Slice</span>
+                <span className="text-xs text-white/70 font-semibold">Gold-Standard Imaging</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

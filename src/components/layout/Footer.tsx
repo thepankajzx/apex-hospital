@@ -20,14 +20,14 @@ const Footer = () => {
               </Link>
             </div>
             <p className="text-sm opacity-80 leading-relaxed mb-md font-medium text-text mt-sm">
-              Apex Diagnostics is a private imaging Centre that has been providing state-of-the-art diagnostic facilities. We specialize in non-invasive diagnostic imaging in a warm and caring ambiance.
+              Apex Hospital & Diagnostics is Solan’s trusted healthcare center, providing multi-speciality consultations and advanced diagnostic facilities including 1.5T MRI, 16-Slice CT, 24/7 ICU, and automated pathology.
             </p>
             <div className="flex items-center gap-sm text-xs font-semibold text-text opacity-80 flex-wrap">
               <span className="inline-flex items-center gap-xs">
-                <span className="w-2 h-2 rounded-full bg-secondary inline-block"></span> 24/7 Diagnostics & Imaging
+                <span className="w-2 h-2 rounded-full bg-secondary inline-block"></span> 24/7 Emergency & Diagnostics
               </span>
               <span>•</span>
-              <span>NABH Quality Standards</span>
+              <span>Advanced Imaging Center</span>
               <span>•</span>
               <span>Solan, HP</span>
             </div>

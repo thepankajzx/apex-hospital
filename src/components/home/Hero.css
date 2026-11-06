@@ -1,10 +1,62 @@
 .hero {
   position: relative;
   background-color: var(--color-primary);
-  background: linear-gradient(135deg, #004b99 0%, #0066cc 100%);
+  background: linear-gradient(135deg, #073b66 0%, #0a4d80 100%);
   padding: 3rem 0 2.5rem;
   color: white;
   overflow: hidden;
+}
+
+.hero-emergency-call {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(230, 57, 70, 0.15);
+  border: 1px solid rgba(230, 57, 70, 0.4);
+  color: #ffffff;
+  padding: 0.65rem 1.15rem;
+  border-radius: var(--radius-md);
+  font-size: 0.88rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.hero-emergency-call:hover {
+  background-color: rgba(230, 57, 70, 0.25);
+  border-color: rgba(230, 57, 70, 0.8);
+}
+
+.hero-emergency-call strong {
+  color: #ff6b6b;
+  margin-right: 0.25rem;
+}
+
+.hero-factual-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.hero-factual-item {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.82rem;
+  color: #e2e8f0;
+  font-weight: 600;
+}
+
+.prem-care-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #073b66;
+  letter-spacing: 0.05em;
 }
 
 .hero::after {

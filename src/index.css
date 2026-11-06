@@ -1,21 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600;700&family=Nunito:wght@700;800;900&display=swap');
 
 :root {
-  /* Brand Colors (Apex Hospital Theme) */
-  --color-primary: #0056b3; /* Trusted Medical Blue */
-  --color-primary-light: #0069d9;
-  --color-accent: #e63946; /* Emergency / CTA Red */
-  --color-accent-light: #f0f7ff; /* Soft Blue/Ice */
-  --color-secondary: #2a9d8f; /* Calming Teal */
-  --color-secondary-light: #e6f6f4;
+  /* Brand Colors (Apex Hospital Enterprise Medical Theme) */
+  --color-primary: #073b66; /* Deep Enterprise Navy */
+  --color-primary-light: #0c4d83;
+  --color-accent: #e63946; /* Emergency Only / Critical Callout */
+  --color-accent-light: #fbebee; /* Soft emergency tint */
+  --color-secondary: #087e8b; /* Healthcare Teal */
+  --color-secondary-light: #e6f6f8;
   
   /* Neutrals */
   --color-background: #ffffff;
-  --color-surface: #f8f9fa; /* Soft Gray Blue */
-  --color-text: #333333; /* Dark Gray */
-  --color-text-light: #6c757d;
-  --color-heading: #1a1a1a;
-  --color-border: #e9ecef;
+  --color-surface: #f4f8fb; /* Clean Medical Ice Neutral */
+  --color-text: #2c3e50; /* Legible Deep Slate */
+  --color-text-light: #64748b;
+  --color-heading: #0a2540;
+  --color-border: #e2e8f0;
   
   /* Spacing */
   --spacing-xs: 0.25rem;
